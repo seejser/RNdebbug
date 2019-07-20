@@ -23,36 +23,36 @@
   
   （2）存储上限的问题。
   
-    react-native讨论存储上限的 [issues](https://github.com/facebook/react-native/issues/3387#issuecomment-148042923)，[中文](https://github.com/sunnylqm/react-native-storage/issues/111) 
+   react-native讨论存储上限的 [issues](https://github.com/facebook/react-native/issues/3387#issuecomment-148042923)，[中文](https://github.com/sunnylqm/react-native-storage/issues/111) 
     
-    Android:
+   Android:
     
-    默认的上限是6M，看源码,我们发现可以通过重写setMaximumSize的方式来扩大上限，代码类似如下：
+   默认的上限是6M，看源码,我们发现可以通过重写setMaximumSize的方式来扩大上限，代码类似如下：
     
     
 
+   ```
+   long size = 50L * 1024L * 1024L; // 50 MB 
     
-    long size = 50L * 1024L * 1024L; // 50 MB 
-    
-com.facebook.react.modules.storage.ReactDatabaseSupplier.getInstance(getApplicationContext()).setMaximumSize(size);
+   com.facebook.react.modules.storage.ReactDatabaseSupplier.getInstance(getApplicationContext()).setMaximumSize(size);
 
-    
-    ios:
-    
-    
-    On iOS, AsyncStorage is backed by native code that stores small values in a serialized dictionary and larger values in separate files.
+   ```
+   ios:
     
     
-    - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
+   On iOS, AsyncStorage is backed by native code that stores small values in a serialized dictionary and larger values in separate files.
     
     
-    使用场景：需要复杂大量数据的处理
+   - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
+    
+    
+   使用场景：需要复杂大量数据的处理
     
     
     
     
-    - [Realm](https://realm.io)
+   - [Realm](https://realm.io)
     
     
-    Realm是一个适应多平台，功能强大的数据库
+   Realm是一个适应多平台，功能强大的数据库
     
