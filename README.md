@@ -29,13 +29,14 @@
     
     默认的上限是6M，看源码,我们发现可以通过重写setMaximumSize的方式来扩大上限，代码类似如下：
     
-    ```
+    
+ ```
     
     long size = 50L * 1024L * 1024L; // 50 MB 
     
 com.facebook.react.modules.storage.ReactDatabaseSupplier.getInstance(getApplicationContext()).setMaximumSize(size);
 
-    ```
+```
     
     ios:
     
@@ -56,4 +57,3 @@ com.facebook.react.modules.storage.ReactDatabaseSupplier.getInstance(getApplicat
     
     Realm是一个适应多平台，功能强大的数据库
     
-
